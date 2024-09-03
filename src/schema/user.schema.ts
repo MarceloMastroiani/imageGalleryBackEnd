@@ -34,8 +34,8 @@ export class User {
   password: string;
 
   //Trae cart como referencia
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Cart' })
-  cart: Cart;
+  //@Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Cart' })
+  //cart: Cart;
 
   //IMAGEN DEL USUARIO (OPCIONAL)
   @Prop()
