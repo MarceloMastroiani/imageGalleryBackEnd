@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Cart } from './cart.schema';
 
 @Schema({
   timestamps: true,
@@ -32,10 +31,6 @@ export class User {
     minLength: 3,
   })
   password: string;
-
-  //Trae cart como referencia
-  //@Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Cart' })
-  //cart: Cart;
 
   //IMAGEN DEL USUARIO (OPCIONAL)
   @Prop()

@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ProductModule } from './product/product.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CartModule } from './cart/cart.module';
 import { UserModule } from './user/user.module';
 
 @Module({
@@ -13,8 +11,6 @@ import { UserModule } from './user/user.module';
     }),
     //Se importa el modulo de mongoose para poder usar la base de datos con la variable de entorno
     MongooseModule.forRoot(process.env.MONGO_URL),
-    ProductModule,
-    CartModule,
     UserModule,
   ],
 })
