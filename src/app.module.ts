@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
-import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { ImagesModule } from './images/images.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     //Se importa el modulo de mongoose para poder usar la base de datos con la variable de entorno
     MongooseModule.forRoot(process.env.MONGO_URL),
     UserModule,
-    CloudinaryModule,
+    ImagesModule,
   ],
 })
 export class AppModule {}
