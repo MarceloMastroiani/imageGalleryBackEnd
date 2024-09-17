@@ -14,6 +14,12 @@ export class UserService {
     return this.userModel.find();
   }
 
+  //Busca un usuario por nombre
+  async findOneByName(name: string) {
+    return this.userModel.findOne({ name });
+  }
+
+  //Busca un usuario por id
   async findOne(id: number) {
     return this.userModel.findById(id);
   }

@@ -31,10 +31,6 @@ export class User {
     minLength: 3,
   })
   password: string;
-
-  //IMAGEN DEL USUARIO (OPCIONAL)
-  @Prop()
-  image?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
