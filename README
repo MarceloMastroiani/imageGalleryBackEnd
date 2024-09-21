@@ -1,3 +1,8 @@
 # investigar para hacer una galeria de imágenes (HECHO)
 
-hacer frontend con nestjs
+#hacer frontend con nestjs
+
+# instalamos las dependencias
+
+npm install --save @nestjs/jwt passport-jwt
+npm install --save-dev @types/passport-jwt
