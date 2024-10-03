@@ -11,9 +11,9 @@ export class AuthService {
   ) {}
 
   //Validacion
-  async validateUser(username: string, pass: string): Promise<any> {
+  async validateUser(email: string, pass: string): Promise<any> {
     //Buscamos el usuario
-    const user = await this.userService.findOneByName(username);
+    const user = await this.userService.findOneByEmail(email);
     //Validamos el usuario
     if (user && user.password === pass) {
       //Decestructuramos el usuario, separando el password y guardando el resto en result
@@ -24,8 +24,9 @@ export class AuthService {
     return null;
   }
 
+  //aca se obtiene el payload y lo mandamos a la funcion sign del jwtService para obtener el token
   async login(user: any) {
-    const payload = { username: user._doc.name, sub: user._doc._id };
+    const payload = { email: user._doc.email, sub: user._doc._id };
     return {
       access_token: this.jwtService.sign(payload),
     };

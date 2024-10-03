@@ -14,6 +14,11 @@ export class UserService {
     return this.userModel.find();
   }
 
+  //Busca un usuario por email
+  async findOneByEmail(email: string) {
+    return this.userModel.findOne({ email });
+  }
+
   //Busca un usuario por nombre
   async findOneByName(name: string) {
     return this.userModel.findOne({ name });
@@ -30,6 +35,7 @@ export class UserService {
       const newUser = await this.userModel.create(createUserDto);
       return newUser.save();
     } catch (error) {
+      //TODO: Mejorar el mensaje de error y poner el codigo de error para mandar al cliente(FRONTEND)
       return { status: 'error', error };
     }
   }

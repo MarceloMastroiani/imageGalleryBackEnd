@@ -23,6 +23,20 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('email/:email')
+  async findOneByEmail(@Param('email') email: string) {
+    const user = await this.userService.findOneByEmail(email);
+    if (!user) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'No se encontro el usuario',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    return user;
+  }
   @Get('name/:name')
   async findOneByName(@Param('name') name: string) {
     const user = await this.userService.findOneByName(name);
